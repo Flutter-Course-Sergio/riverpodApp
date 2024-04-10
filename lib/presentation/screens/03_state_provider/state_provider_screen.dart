@@ -9,7 +9,7 @@ class StateProviderScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final counter = ref.watch(counterProvider);
-    final mode = ref.watch(darkModeProvider);
+    final isDarkmode = ref.watch(darkModeProvider);
     final user = ref.watch(usernameProvider);
 
     return Scaffold(
@@ -24,9 +24,11 @@ class StateProviderScreen extends ConsumerWidget {
           ),
           IconButton(
             // icon:
-            icon: mode
-                ? const Icon(Icons.dark_mode_outlined, size: 100)
-                : const Icon(Icons.light_mode_outlined, size: 100),
+            icon: Icon(
+                isDarkmode
+                    ? Icons.dark_mode_outlined
+                    : Icons.light_mode_outlined,
+                size: 100),
             onPressed: () {
               ref.read(darkModeProvider.notifier).toggleDarkMode();
             },
