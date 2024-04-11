@@ -6,6 +6,21 @@ part of 'todos_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+String _$filteredTodosHash() => r'5e3be705d323e756a4a34c3d5aa56b95b80146e3';
+
+/// See also [filteredTodos].
+@ProviderFor(filteredTodos)
+final filteredTodosProvider = AutoDisposeProvider<List<Todo>>.internal(
+  filteredTodos,
+  name: r'filteredTodosProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$filteredTodosHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FilteredTodosRef = AutoDisposeProviderRef<List<Todo>>;
 String _$todoCurrentFilterHash() => r'c70550f03a7d2e3287f2f2730e7615df166b1a51';
 
 /// See also [TodoCurrentFilter].
